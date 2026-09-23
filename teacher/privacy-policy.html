@@ -3,10 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>闪卡课堂 隐私政策</title>
+<title>闪卡笔记 隐私政策</title>
 <script>
 // 按浏览器语言自动切换：英文环境跳英文版，其余留中文版（App 端 Link 打开同样生效）
+// ⚠️ 手动切换不强制跳回：切换链接带 ?lang=zh 标记时跳过自动切换，否则会被反向脚本弹回（原 BUG）
 (function () {
+  var params = new URLSearchParams(location.search);
+  if (params.get('lang') === 'zh') return; // 用户已手动选中文，不再自动跳
   var lang = (navigator.language || '').toLowerCase();
   if (lang.indexOf('en') === 0 && !/\.en\.html$/.test(location.pathname)) {
     location.href = location.pathname.replace(/\.html$/, '.en.html') + location.search + location.hash;
@@ -21,9 +24,9 @@
 </head>
 <body>
 <h1>隐私政策</h1>
-<p class="meta">生效日期：2026 年 9 月 9 日 ｜ 开发者：席海峰 ｜ <a href="privacy-policy.en.html">English</a></p>
+<p class="meta">生效日期：2026 年 9 月 23 日 ｜ 开发者：席海峰 ｜ <a href="privacy-policy.en.html?lang=en">English</a></p>
 
-<p>本应用"闪卡课堂"（以下简称"本应用"）由席海峰（以下简称"我们"）开发。我们深知个人信息的重要性，本应用在设计上遵循"数据留在你的设备上"的原则。请在使用前仔细阅读本政策。</p>
+<p>本应用"闪卡笔记"（以下简称"本应用"）由席海峰（以下简称"我们"）开发。我们深知个人信息的重要性，本应用在设计上遵循"数据留在你的设备上"的原则。请在使用前仔细阅读本政策。</p>
 
 <h2>一、我们收集哪些信息</h2>
 <p><strong>我们不收集、不上传、不出售你的个人信息。</strong>本应用不包含广告 SDK、统计分析 SDK 或任何第三方追踪组件，不采集广告标识符（IDFA），不进行跨应用追踪。</p>
@@ -32,6 +35,7 @@
 <ul>
   <li><strong>本地存储</strong>：你创建的闪卡、笔记、课程记录、录课视频等内容全部保存在你的设备本地，我们无法访问。</li>
   <li><strong>iCloud 同步</strong>：若你开启 iCloud 同步功能，数据通过 Apple 提供的 iCloud 在你自己的设备之间同步，加密传输与存储由 Apple 处理，我们无法读取你的 iCloud 数据。</li>
+  <li><strong>学习配置同步</strong>：你在应用内自定义的科目、年级、学期、闪卡类型名称，会通过 Apple 的 iCloud 键值存储在你登录同一 Apple 账号的设备之间同步，以便换机后无需重新设置。该数据保存在你本人的 iCloud 账户下，我们无法访问；你可在设备"设置 → [你的姓名] → iCloud"中管理或关闭。</li>
 </ul>
 
 <h2>三、订阅与支付</h2>

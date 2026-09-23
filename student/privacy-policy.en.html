@@ -6,7 +6,10 @@
 <title>FlashMemo Privacy Policy</title>
 <script>
 // 反向自动切换：非英文环境跳回中文版
+// ⚠️ 手动切换不强制跳回：切换链接带 ?lang=en 标记时跳过自动切换，否则会被正向脚本弹回（原 BUG）
 (function () {
+  var params = new URLSearchParams(location.search);
+  if (params.get('lang') === 'en') return; // 用户已手动选英文，不再自动跳
   var lang = (navigator.language || '').toLowerCase();
   if (lang.indexOf('en') !== 0) {
     location.href = location.pathname.replace(/\.en\.html$/, '.html') + location.search + location.hash;
@@ -21,7 +24,7 @@
 </head>
 <body>
 <h1>Privacy Policy</h1>
-<p class="meta">Effective date: September 9, 2026 | Developer: Xi Haifeng | <a href="privacy-policy.html">中文</a></p>
+<p class="meta">Effective date: September 23, 2026 | Developer: Xi Haifeng | <a href="privacy-policy.html?lang=zh">中文</a></p>
 
 <p>This application "FlashMemo" (the "App") is developed by Xi Haifeng ("we" or "us"). We take personal information seriously. The App is designed around the principle of "your data stays on your device." Please read this policy carefully before use.</p>
 
@@ -32,6 +35,7 @@
 <ul>
   <li><strong>Local storage</strong>: Flashcards, notes, review history, and other content you create are stored entirely on your device. We have no access to them.</li>
   <li><strong>iCloud sync</strong>: If you enable iCloud sync, your data is synchronized between your own devices via Apple's iCloud. Encryption in transit and at rest is handled by Apple; we cannot read your iCloud data.</li>
+  <li><strong>Study configuration sync</strong>: Custom subject, grade, semester, and flashcard type names you create in the App are synchronized between your devices signed in to the same Apple account via Apple's iCloud key-value store, so you don't need to set them up again after switching devices. This data lives under your own iCloud account and we have no access to it; you can manage or turn this off under "Settings → [Your Name] → iCloud" on your device.</li>
 </ul>
 
 <h2>3. Subscriptions and Payments</h2>
