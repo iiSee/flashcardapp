@@ -6,7 +6,10 @@
 <title>FlashClass Terms of Service (EULA)</title>
 <script>
 // 反向自动切换：非英文环境跳回中文版
+// ⚠️ 手动切换不强制跳回：切换链接带 ?lang=en 标记时跳过自动切换，否则会被正向脚本弹回（原 BUG）
 (function () {
+  var params = new URLSearchParams(location.search);
+  if (params.get('lang') === 'en') return; // 用户已手动选英文，不再自动跳
   var lang = (navigator.language || '').toLowerCase();
   if (lang.indexOf('en') !== 0) {
     location.href = location.pathname.replace(/\.en\.html$/, '.html') + location.search + location.hash;
@@ -21,7 +24,7 @@
 </head>
 <body>
 <h1>Terms of Service (End User License Agreement)</h1>
-<p class="meta">Effective date: September 9, 2026 | Developer: Xi Haifeng | <a href="terms-of-service.html">中文</a></p>
+<p class="meta">Effective date: October 8, 2026 | Developer: Xi Haifeng | <a href="terms-of-service.html?lang=zh">中文</a></p>
 
 <p>Welcome to "FlashClass" (the "App"). By installing or using the App, you agree to these terms. If you do not agree, please do not use the App.</p>
 
@@ -30,19 +33,22 @@
 
 <h2>2. Subscriptions and Auto-Renewal</h2>
 <ul>
-  <li><strong>Plans</strong>: The App offers a teacher subscription: ¥28 per month, or ¥228 per year (as shown on the App Store product page).</li>
+  <li><strong>Plans</strong>: The App offers two teacher subscription tiers. FlashClass Pro: ¥28 per month, or ¥228 per year; FlashClass AI: ¥72 per month, or ¥598 per year (as shown on the App Store product page). FlashClass AI includes all FlashClass Pro benefits and allocates 3,000 AI points every month.</li>
   <li><strong>Auto-renewal</strong>: Subscriptions are charged to your Apple ID upon purchase confirmation and renew automatically within 24 hours before the end of the current period, unless you disable auto-renewal at least 24 hours before expiration.</li>
   <li><strong>Managing and cancelling</strong>: You may manage or cancel your subscription at any time in iOS "Settings → Apple ID → Subscriptions"; benefits continue until the end of the current period.</li>
-  <li><strong>Free trial</strong>: First-time subscribers receive a 7-day free trial. You may cancel at any time during the trial at no charge; if not cancelled, the trial converts automatically to a paid subscription at the prices above. Each Apple account is eligible for one free trial per subscription group.</li>
+  <li><strong>Free trial</strong>: Eligible first-time subscribers to the standard plan may receive a 7-day free trial, as displayed by the App Store. FlashClass AI does not include this offer. You may cancel at any time during the trial at no charge; if not cancelled, the trial converts automatically to a paid subscription at the prices above. Each Apple account is eligible for one free trial per subscription group.</li>
 </ul>
+
+<p>FlashClass AI monthly and annual options are a higher level in the same subscription group as FlashClass Pro. Apple manages upgrades, downgrades and renewal timing. Cancelling renewal preserves benefits and monthly point allocations through the paid service period.</p>
 
 <h2>3. Refunds</h2>
 <p>Subscriptions are processed by Apple. For refund requests, contact Apple directly at reportaproblem.apple.com; refunds are handled under Apple's policies.</p>
 
 <h2>4. Your Content</h2>
-<p>Flashcards, notes, lesson materials, and other content you create with the App belong to you. You are responsible for the input you submit to third-party AI services and must comply with the terms of the provider you configure.</p>
-<p><strong>AI costs</strong>: AI features use your own API key. Fees are settled directly between you and your provider and are unrelated to the App's subscription. We do not participate in billing, do not collect payments, and do not track your AI usage. Do not share your API key with others; keep it safe.</p>
-<p><strong>AI-generated content</strong>: AI-generated flashcard drafts, summaries, and similar output are shown to you for confirmation before saving. You are responsible for reviewing them before deciding to keep or use them. Do not use AI-generated content in ways that violate your school's or institution's rules (such as cheating on exams or assignments).</p>
+<p>Flashcards, notes, lesson materials, and other content you create with the App belong to you. You are responsible for the input you submit to third-party AI services and must comply with the terms of the provider identified in the App.</p>
+<p><strong>FlashClass AI and points</strong>: FlashClass AI includes all FlashClass Pro benefits and a monthly allocation of AI points, purchased only through Apple In-App Purchase. Annual plans also allocate points monthly. The localized subscription price, monthly point allocation, token rates and image charges appear in the App before purchase or use. Purchased points do not expire and remain usable after subscription expiry. We may issue free compensation points for service incidents. These are recorded separately, expire on the date displayed in the App, and those expiring first are used first. Refunded purchases have their associated points reversed; already-used refunded points may offset later grants. FlashClass AI has no separate free trial or point top-up product in this release. Teacher and student app points are not interchangeable.</p>
+<p><strong>Request settlement</strong>: A request reserves a conservative maximum before calling the model and settles actual usage afterward. Confirmed failed requests are not charged; uncertain requests retain their reservation until reconciled. Multi-step tasks, animations and automatic repairs may contain several independently billed model calls. Cancelling a task does not reverse calls already completed.</p>
+<p><strong>AI-generated content</strong>: AI output is displayed or saved according to the feature you use. You are responsible for reviewing it before keeping or using it. Do not use AI-generated content in ways that violate your school's or institution's rules (such as cheating on exams or assignments).</p>
 
 <h2>5. Acceptable Use</h2>
 <p>You agree not to use the App for any unlawful purpose, not to reverse-engineer or decompile the App, and not to circumvent subscription restrictions by technical means.</p>
